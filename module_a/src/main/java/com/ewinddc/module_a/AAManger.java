@@ -7,14 +7,13 @@ import com.ewinddc.common.aproxy.IAListener;
 import com.ewinddc.common.aproxy.IAManager;
 
 /**
- * Created by ewinddc on 2018/4/10.
+ * Created by ewinddc on 2018/10/18
  */
-
-@Route(path="/service/a" ,name = "a")
-public class AManager implements IAManager {
+@Route(path = "/service/aa")
+public class AAManger implements IAManager {
     @Override
     public String getName() {
-        return AManager.class.getSimpleName();
+        return AAManger.class.getSimpleName();
     }
 
     @Override

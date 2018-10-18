@@ -1,9 +1,8 @@
 package com.ewinddc.modulesample;
 
 import android.app.Application;
-import android.content.Intent;
 
-import com.ewinddc.common.Constants;
+import com.alibaba.android.arouter.launcher.ARouter;
 
 /**
  * Created by ewinddc on 2018/4/10.
@@ -14,9 +13,11 @@ public class App extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-        Intent intent = new Intent();
-        intent.setPackage(getPackageName());
-        intent.setAction(Constants.A_ACTION);
-        startService(intent);
+
+        if (BuildConfig.DEBUG) {           // These two lines must be written before init, otherwise these configurations will be invalid in the init process
+            ARouter.openLog();     // Print log
+            ARouter.openDebug();   // Turn on debugging mode (If you are running in InstantRun mode, you must turn on debug mode! Online version needs to be closed, otherwise there is a security risk)
+        }
+        ARouter.init(this); // As early as possible, it is recommended to initialize in the Application
     }
 }
