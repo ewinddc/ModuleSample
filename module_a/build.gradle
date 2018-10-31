@@ -3,14 +3,12 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 26
 
-
-
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
-
+        consumerProguardFiles 'proguard-rules.pro'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
@@ -31,7 +29,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    compileOnly project(':common')
+    implementation project(':common')
+
     testImplementation 'junit:junit:4.12'
 
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
